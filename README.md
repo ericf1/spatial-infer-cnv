@@ -1,7 +1,5 @@
 # spatial-infer-cnv
 
-# Workflow
-
 To run inferCNV, it requires three different files, the filtered_feature_bc_matrix.h5 located inside of the spaceranger path, annotations as a csv file that contains normal annotations, and a gene order file.
 
 The filtered_feature_bc_matrix.h5 should be located inside of the spaceranger output. Collect this file path.
