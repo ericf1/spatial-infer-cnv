@@ -31,20 +31,6 @@ And then
 python /diskmnt/Projects/Users/efang/find_normal_squidpy/main_specific.py
 ```
 
-# How it works:
-The script using the find_normal.py file to find the normal annotations. 
-
-The idea is to create a buffer (increase the radius of the polygon) around annotated and suspected "tumor" areas and annotate cells outside of that area as "normal." In addition to already marked regions, I also use the epcam marker and also find a buffer radius around those cells where there is a nonzero epcam value. 
-
-The script runs to find areas of normal 6 different times before giving up.
-
-1. 3.5 spot buffer around the epcam_buffer and 2.5 spot buffer around the marked tumor regions.
-2. 2-3.5 spot buffer that is uniformally chosen for the epcam buffer and 2.5 spot buffer around the marked tumor regions.
-3. 3 spot buffer around the epcam_buffer and 2.5 spot buffer around the marked tumor regions.
-4. 1.5-3 spot buffer that is uniformally chosen for the epcam buffer and 2.5 spot buffer around the marked tumor regions.
-5. 1-2.5 spot buffer that is uniformally chosen for the epcam buffer and 2.5 spot buffer around the marked tumor regions.
-6. 0.5-2 spot buffer that is uniformally chosen for the epcam buffer and 2.5 spot buffer around the marked tumor regions.
-
 ## Running the script
 The conda environment is located at: `/diskmnt/Projects/Users/efang/miniconda3/envs/SpatialInferCNV`
 
@@ -59,3 +45,17 @@ An example of how it would work is:
 ```
 Rscript /diskmnt/Projects/Users/efang/SpatialInferCNV/SpatialCNVcmdline4.R /diskmnt/Projects/Users/efang/normalized_annotations/HT413C1-Th1K2A4U1Bp1-with_normal_annotations.csv /diskmnt/Datasets/Spatial_Transcriptomics/outputs_FFPE/Human/HT413C1/Th1K2/HT413C1-Th1K2A4U1Bp1/outs/filtered_feature_bc_matrix.h5 HT413C1-Th1K2A4U1Bp1
 ```
+
+## How find_normal works:
+The script using the find_normal.py file to find the normal annotations. 
+
+The idea is to create a buffer (increase the radius of the polygon) around annotated and suspected "tumor" areas and annotate cells outside of that area as "normal." In addition to already marked regions, I also use the epcam marker and also find a buffer radius around those cells where there is a nonzero epcam value. 
+
+The script runs to find areas of normal 6 different times before giving up.
+
+1. 3.5 spot buffer around the epcam_buffer and 2.5 spot buffer around the marked tumor regions.
+2. 2-3.5 spot buffer that is uniformally chosen for the epcam buffer and 2.5 spot buffer around the marked tumor regions.
+3. 3 spot buffer around the epcam_buffer and 2.5 spot buffer around the marked tumor regions.
+4. 1.5-3 spot buffer that is uniformally chosen for the epcam buffer and 2.5 spot buffer around the marked tumor regions.
+5. 1-2.5 spot buffer that is uniformally chosen for the epcam buffer and 2.5 spot buffer around the marked tumor regions.
+6. 0.5-2 spot buffer that is uniformally chosen for the epcam buffer and 2.5 spot buffer around the marked tumor regions.
